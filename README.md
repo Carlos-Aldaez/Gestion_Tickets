@@ -17,31 +17,31 @@ README.md → Descripción del proyecto.
 
 ### 🔹 1. Analisis de la atencion de solicitudes por plazo
 
-Efectividad de respuesta por reponsable
+- Efectividad de respuesta por reponsable
 
-Efectividad de respuesta por mes
+- Efectividad de respuesta por mes
 
 ### 🔹 2. Analisis de solicitudes ingresadas vs atendidas
 
-Identificación de patrones de atención
+- Identificación de patrones de atención
 
 ### 🔹 3. Análisis de tiempo de respuesta
 
-Categorías con mayor tiempo de atención promedio
+- Categorías con mayor tiempo de atención promedio
 
-Días de atención promedio general y por consulta.
+- Días de atención promedio general y por consulta.
 
 ### 🔹 4. Solicitudes pendientes de atención
 
-Análisis por estado de solicitud mensual.
+- Análisis por estado de solicitud mensual.
 
-Comportamiento de solicitudes por responsable.
+- Comportamiento de solicitudes por responsable.
 
 ### 🔹 5. Top 5 mayores solicitudes
 
-Análisis solicitudes por categoría.
+- Análisis solicitudes por categoría.
 
-Análisis solicitudes por empresa.
+- Análisis solicitudes por empresa.
 
 ## 🚀 Cómo Usar el Archivo
 
