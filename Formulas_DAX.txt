@@ -1,0 +1,112 @@
+// Porcentaje de Desempeño (%dp)
+%dp = 
+DIVIDE(
+    [Total_ticketsxmes],
+    [Total_tickets],
+    0
+)
+
+// Atención por Mes
+Atencion_xMes = 
+DIVIDE(
+    [Cuenta_atendido_xMes],
+    [Dias_xMesA],
+    0
+)
+
+// Cuenta de tickets atendidos por mes
+Cuenta_atendido_xMes = 
+COUNTA(Tabla1[FECHA DE ATENCION REAL])
+
+// Cuenta de ingresos por mes
+Cuenta_ingreso_xMes = 
+COUNTA(Tabla1[FECHA DE INGRESO])
+
+// Días promedio por caso
+Días_Promedio = 
+AVERAGE(Tabla1[LAB])
+
+// Días laborales (de lunes a viernes) por mes basados en la fecha de ingreso
+Dias_xMes = 
+CALCULATE(
+    DISTINCTCOUNT(Tabla1[FECHA DE INGRESO]),
+    FILTER(
+        Tabla1,
+        WEEKDAY(Tabla1[FECHA DE INGRESO], 2) <= 5 // Lunes es 1, viernes es 5
+    )
+)
+
+// Días laborales (de lunes a viernes) por mes basados en la fecha de atención
+Dias_xMesA = 
+CALCULATE(
+    DISTINCTCOUNT(Tabla1[FECHA DE ATENCION REAL]),
+    FILTER(
+        Tabla1,
+        WEEKDAY(Tabla1[FECHA DE ATENCION REAL], 2) <= 5
+    )
+)
+
+// Ingreso promedio por día
+Ingreso_prom = 
+DIVIDE(
+    [Cuenta_ingreso_xMes],
+    [Dias_xMes],
+    0
+)
+
+// Valor máximo del campo LAB
+Max = 
+MAX(Tabla1[LAB])
+
+// Tickets pendientes (Estado: "Solicitado" o "En proceso")
+Pendiente = 
+SUMX(
+    Tabla1, 
+    IF(
+        Tabla1[ESTADO] IN {"SOLICITADO", "EN PROCESO"}, 
+        1, 
+        0
+    )
+)
+
+// Porcentaje de tickets por estado
+Porcentaje_Estado = 
+DIVIDE(
+    [Total_tickets],
+    [Total_Casos_Por_Mes],
+    0
+)
+
+// Total de casos por mes (respetando el contexto de mes)
+Total_Casos_Por_Mes = 
+CALCULATE(
+    COUNTX(Tabla1, Tabla1[CASO]),
+    ALLEXCEPT(Tabla1, Tabla1[MES DE REGISTRO])
+)
+
+// Total de tickets
+Total_tickets = 
+COUNTX(
+    Tabla1,
+    Tabla1[CASO]
+)
+
+// Total de tickets "Dentro de plazo"
+Total_ticketsxmes = 
+COUNTX(
+    FILTER(
+        Tabla1, 
+        Tabla1[Plazo Abs] = "Dentro de plazo"
+    ),
+    Tabla1[CASO]
+)
+
+// Total de tickets "Dentro de plazo" o "Fuera de plazo"
+Total_ticketsxmesABS = 
+COUNTX(
+    FILTER(
+        Tabla1, 
+        Tabla1[Plazo Abs] = "Fuera de plazo" || Tabla1[Plazo Abs] = "Dentro de plazo"
+    ),
+    Tabla1[CASO]
+)
