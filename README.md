@@ -2,6 +2,8 @@
 
 Análisis de solicitudes mediante un software de gestión, desarrollado en Power BI y formulas DAX.
 
+![image](https://github.com/user-attachments/assets/e8ab1523-f02e-4580-8807-e58d2622a0dd)
+
 📂 Contenido
 
 Gestion_tickets.pbix → Archivo de Power BI con el análisis completo.
