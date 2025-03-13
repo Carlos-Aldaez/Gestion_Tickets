@@ -2,7 +2,7 @@
 
 Análisis de solicitudes mediante un software de gestión, desarrollado en Power BI y formulas DAX.
 
-![image](https://github.com/user-attachments/assets/e8ab1523-f02e-4580-8807-e58d2622a0dd)
+![image](https://github.com/user-attachments/assets/911c56b0-43b9-43ff-ba98-899629d021d1)
 
 📂 Contenido
 
