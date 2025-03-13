@@ -1,6 +1,7 @@
 # Gestión Tickets
 
 Análisis de solicitudes mediante un software de gestión, desarrollado en Power BI y formulas DAX.
+El cual nos permite realizar un analisis de cuatro áreas involucradas.
 
 ![image](https://github.com/user-attachments/assets/911c56b0-43b9-43ff-ba98-899629d021d1)
 
